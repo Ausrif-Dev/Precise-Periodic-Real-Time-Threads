@@ -15,16 +15,7 @@ display.
 
 The temperature, pressure and display were displayed with 5 second interval subsequently as
 stated using the “mytimer.tv_sec = seconds;” and “mytimer.tv_nsec = nanoseconds;” that gets
-the value from a function call “timer_handler(TP_SEC, TP_NSEC);”. The period is declared
-as follows:
-
-//Set timer period of 5 seconds for temperature, pressure, and display
-#define TP_SEC 5 //seconds for temperature
-#define TP_NSEC 0 //nanoseconds for temperature
-#define PP_SEC 5 //seconds for pressure
-#define PP_NSEC 0 //nanoseconds for pressure
-#define DP_SEC 5 //seconds for display
-#define DP_NSEC 0 //nanoseconds for display
+the value from a function call “timer_handler(TP_SEC, TP_NSEC);”.
 
 The priority set for these threads are temperature>pressure>display. Therefore, the temperature and
 pressure were able to be updated to new values before it is displayed. The PID for temperature,
