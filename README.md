@@ -10,3 +10,22 @@ the threads can be run using a single processing core. Therefore, the threads wo
 to multicore processes. The output on the left shows the PID on the “sudo ./pthread” which is
 the running process. The output also prints the thread ID for the temperature, pressure, and
 display.
+
+![alt text](https://github.com/Ausrif-Dev/Precise-Periodic-Real-Time-Threads/blob/35696883a56c144f2d47ecaa6e13cf1fddbb06ba/pthreadsudoRes.PNG?raw=true)
+
+The temperature, pressure and display were displayed with 5 second interval subsequently as
+stated using the “mytimer.tv_sec = seconds;” and “mytimer.tv_nsec = nanoseconds;” that gets
+the value from a function call “timer_handler(TP_SEC, TP_NSEC);”. The period is declared
+as follows:
+
+//Set timer period of 5 seconds for temperature, pressure, and display
+#define TP_SEC 5 //seconds for temperature
+#define TP_NSEC 0 //nanoseconds for temperature
+#define PP_SEC 5 //seconds for pressure
+#define PP_NSEC 0 //nanoseconds for pressure
+#define DP_SEC 5 //seconds for display
+#define DP_NSEC 0 //nanoseconds for display
+
+The priority set for these threads are temperature>pressure>display. Therefore, the temperature and
+pressure were able to be updated to new values before it is displayed. The PID for temperature,
+pressure and display are as follows:
